@@ -1,5 +1,3 @@
-
-
 package th.ac.ku.atm.controller;
 
 import org.springframework.stereotype.Controller;
