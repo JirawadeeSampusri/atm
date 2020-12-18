@@ -38,7 +38,9 @@ public class BankAccountService {
     public void openAccount(BankAccount bankAccount) {
         String url = "http://localhost:8091/api/bankaccount";
 
+        restTemplate.postForObject(url, bankAccount, BankAccount.class);
     }
+
 
     @PostConstruct
     public void postConstruct() {
@@ -72,6 +74,12 @@ public class BankAccountService {
         String url = "http://localhost:8091/api/bankaccount/" +
                 bankAccount.getId();
         restTemplate.put(url, bankAccount);
+    }
+
+    public void deleteBankAccount(BankAccount bankAccount) {
+        String url = "http://localhost:8091/api/bankaccount/" +
+                bankAccount.getId();
+        restTemplate.delete(url, bankAccount);
     }
 
     public BankAccount findBankAccount(int id) {
