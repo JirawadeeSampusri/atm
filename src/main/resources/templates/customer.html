@@ -3,6 +3,13 @@
       layout:decorate="~{fragments/main_layout}"
       xmlns:th="https://www.thymeleaf.org">
 
+<head>
+    <meta charset="UTF-8">
+    <title>Customer</title>
+    <link th:rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+</head>
+<body>
+
 <div class="container" layout:fragment="content">
     <h1>Register Customer</h1>
     <form action="#" th:action="@{/customer}" method="POST">
@@ -25,8 +32,8 @@
             <input type="submit" class="btn btn-primary">
         </div>
     </form>
-    <hr>
 
+    <hr>
     <h1>All Customers</h1>
     <table class="table table-bordered">
         <thead class="thead-light">
@@ -37,7 +44,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="customer: ${allCustomers}">
+        <tr th:each="customer : ${allCustomers}">
             <td th:text="${customer.id}"></td>
             <td th:text="${customer.name}"></td>
             <td th:text="${customer.pin}"></td>
@@ -45,3 +52,7 @@
         </tbody>
     </table>
 </div>
+
+
+</body>
+</html>

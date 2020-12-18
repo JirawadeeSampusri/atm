@@ -23,8 +23,6 @@ public class LoginController {
     public String getLoginPage() {
         return "login";   // return login.html
     }
-
-
     @PostMapping
     public String login(@ModelAttribute Customer customer, Model model) {
         // 1. เอา id กับ pin ไปเช็คกับข้อมูล customer ที่มีอยู่ ว่าตรงกันบ้างไหม
