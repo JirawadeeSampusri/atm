@@ -9,6 +9,7 @@ import th.ac.ku.atm.model.Customer;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class CustomerService {
@@ -39,8 +40,8 @@ public class CustomerService {
 
     public Customer findCustomer(int id) {
         try {
-            return repository.findById(id);
-        } catch (EmptyResultDataAccessException e) {
+            return repository.findById(id).get();
+        } catch (NoSuchElementException e) {
             return null;
         }
 
@@ -60,7 +61,6 @@ public class CustomerService {
         // 3. ถ้าไม่ตรง ต้องคืนค่า null
         return null;
     }
-
 
     private String hash(String pin) {
         String salt = BCrypt.gensalt(12);
